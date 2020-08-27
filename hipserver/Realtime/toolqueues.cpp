@@ -1,5 +1,5 @@
 /*************************************************************************************************
- * Copyright 2019 FieldComm Group, Inc.
+ * Copyright 2020 FieldComm Group, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -152,8 +152,12 @@ void close_mqueues(void)
           {
             // this means MQs already closed, no need to report
           }
-
-          dbgp_logdbg("  ..%s\n", (char * )qName);
+          else
+          {
+            // Keeping this line outside 'else' prints weird chars in log
+            // (Fixed by VG)
+            dbgp_logdbg("  ..%s\n", (char * )qName);
+          }
         } // if (mq_close(mqDesc) == NO_ERROR)
         else
         {

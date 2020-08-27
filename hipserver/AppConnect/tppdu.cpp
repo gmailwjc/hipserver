@@ -1,5 +1,5 @@
 /*************************************************************************************************
- * Copyright 2019 FieldComm Group, Inc.
+ * Copyright 2020 FieldComm Group, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -516,7 +516,7 @@ char *TpPdu::ToHex()
 	memset(buf, 0, 2000);
 
   const int bufsiz = 10;
-	char byteval[bufsiz];
+	char byteval[bufsiz]; // #689
 	int len = PduLength() + 1;
 	for (int i = 0; i < len; i++)
 	{
